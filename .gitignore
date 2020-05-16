@@ -2,3 +2,5 @@ __pycache__
 
 *.pyc
 Pyano/__pycache__/midiHandler.cpython-37.pyc
+pyano.spec
+Pyano/__pycache__/midiHandler.cpython-37.pyc

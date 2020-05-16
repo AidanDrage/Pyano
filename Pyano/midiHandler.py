@@ -3,12 +3,12 @@ import threading
 import mido
 from playsound import playsound
 
+
 def listMidiInputs():
     return mido.get_input_names()
 
 def selectInput(inputDevice):
-    listenerThread = threading.Thread(
-        target= lambda: midiListner(inputDevice))
+    listenerThread = threading.Thread(target= lambda: midiListner(inputDevice))
     listenerThread.setDaemon(True)
     listenerThread.start()
 
@@ -18,5 +18,9 @@ def midiListner(inputDevice):
     else:
         input = mido.open_input(inputDevice)
         for msg in input:
+            print(msg)
             if (msg.type is "note_on"):
-                playsound("D:\Projects\Python\Pyano\Resources\piano-ff\piano-ff-001.wav")
+                playsound(
+                    ".\Resources\piano-ff-040-MiddleC - midi 60.wav", 
+                    block = False
+                    )
