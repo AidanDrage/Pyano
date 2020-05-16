@@ -1,6 +1,7 @@
+from tkinter import *
+
 import midiHandler as mh
 
-from tkinter import *
 
 window = Tk()
 
