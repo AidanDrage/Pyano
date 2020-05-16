@@ -5,7 +5,7 @@ import midiHandler as mh
 
 window = Tk()
 
-inputsList = ["Select an option"] + mh.getInputs()
+inputsList = ["Select an option"] + mh.listMidiInputs()
 
 inputVal = StringVar(window)
 inputVal.set(inputsList[0])
@@ -14,7 +14,7 @@ inputSelection = OptionMenu(
     window, 
     inputVal, 
     *inputsList, 
-    command = mh.onClick)
+    command = mh.selectInput)
 inputSelection.pack()
 
 window.mainloop()
