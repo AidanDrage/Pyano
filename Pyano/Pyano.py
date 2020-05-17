@@ -1,20 +1,28 @@
 from tkinter import *
 
-import midiHandler as mh
+from midiHandler import *
 
+class settingsPage():
+    
+    def __init__(self, window):
 
-window = Tk()
+        mh = midiHandler()   
+        
+        inputsList = ["Select an option"] + mh.listMidiInputs()
+        
+        inputVal = StringVar(window)
+        inputVal.set(inputsList[0])
+        inputSelection = OptionMenu(
+            window, 
+            inputVal, 
+            *inputsList, 
+            command = mh.selectInput)
+        
+        inputSelection.pack()
 
-inputsList = ["Select an option"] + mh.listMidiInputs()
+class pyanoUI:
+    
+    window = Tk()
+    w = settingsPage(window)
+    window.mainloop()
 
-inputVal = StringVar(window)
-inputVal.set(inputsList[0])
-
-inputSelection = OptionMenu(
-    window, 
-    inputVal, 
-    *inputsList, 
-    command = mh.selectInput)
-inputSelection.pack()
-
-window.mainloop()
