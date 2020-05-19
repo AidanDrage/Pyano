@@ -1,4 +1,6 @@
 {
-    "python.pythonPath": "C:\\Users\\Aidan\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe"
-	"python.envFile": "${workspaceFolder}/.env" 
+    "python.pythonPath": "C:\\Users\\Aidan\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.autoComplete.extraPaths": [
+        "D:\\Projects\\Python\\Pyano\\Pyano"]
 }
