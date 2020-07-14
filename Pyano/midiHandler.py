@@ -19,4 +19,6 @@ def midiListner(inputDevice):
         input = mido.open_input(inputDevice)
         for msg in input:
             if (msg.type is "note_on"):
-                playsound("D:\Projects\Python\Pyano\Resources\piano-ff\piano-ff-001.wav")
+                playsound(
+            ".\\Resources\\" + str(msg.note) + ".wav", 
+            block = False)
