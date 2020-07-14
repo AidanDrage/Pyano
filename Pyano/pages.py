@@ -1,32 +1,32 @@
-from tkinter import *
+import tkinter as tk
 
 from midiHandler import *
 
-class homePage:
+class homePage(tk.Frame):
 
     def __init__(self, window):
 
-        homePage = Frame(window, bg = "blue")
-        splash = Label(homePage, text = "Hello, Pyano!")
-        settingsButton = Button(window, text = "Settings", command = lambda: settingsPage(window))
+        homePage = tk.Frame(window, bg = "blue")
+        splash = tk.Label(homePage, text = "Hello, Pyano!")
+        settingsButton = tk.Button(window, text = "Settings", command = lambda: settingsPage(window))
 
         splash.pack() 
         settingsButton.pack()       
         homePage.pack()
 
-class settingsPage:
+class settingsPage(tk.Frame):
     
     def __init__(self, window):
 
         mh = midiHandler()
 
-        settingsPage = Frame(window)
+        settingsPage = tk.Frame(window)
         
         inputsList = ["Select an option"] + mh.listMidiInputs()
         
-        inputVal = StringVar(settingsPage)
+        inputVal = tk.StringVar(settingsPage)
         inputVal.set(inputsList[0])
-        inputSelection = OptionMenu(
+        inputSelection = tk.OptionMenu(
             settingsPage, 
             inputVal, 
             *inputsList, 
