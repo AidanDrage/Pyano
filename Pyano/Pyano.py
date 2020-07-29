@@ -7,6 +7,8 @@ class PyanoApp(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        self.geometry("500x200")
+
         contents = homePage(self)
         contents.pack()
 
