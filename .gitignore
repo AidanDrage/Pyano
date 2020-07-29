@@ -136,3 +136,4 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+Pyano/__pycache__/midiHandler.cpython-37.pyc
