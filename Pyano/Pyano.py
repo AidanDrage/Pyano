@@ -1,6 +1,7 @@
 import tkinter as tk
 
-from pages import *
+import HomePage as hp
+import SetingsPage as sp
         
 class PyanoApp(tk.Tk):
 
@@ -10,11 +11,22 @@ class PyanoApp(tk.Tk):
         #self.geometry("500x200")
 
         menubar = tk.Menu(self)
-        menubar.add_command(label="Settings", command = lambda: settingsPage(self.master))
+        menubar.add_command(label="Home", 
+            command = lambda: change_page(hp.HomePage(self)))
+        menubar.add_command(label="Settings", 
+            command = lambda: change_page(sp.SettingsPage(self)))
         self.config(menu=menubar)
         
-        contents = homePage(self)
-        contents.pack()
+        global currentpage 
+        currentpage = hp.HomePage(self)
+        currentpage.pack()
+
+        def change_page(newpage):
+            global currentpage
+            currentpage.pack_forget()
+            
+            currentpage = newpage
+            newpage.pack()
 
 app = PyanoApp()
 app.mainloop()
