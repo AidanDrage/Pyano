@@ -1,7 +1,9 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__/*
+__pycache__
 *.py[cod]
 *$py.class
+*.pyc
 
 # C extensions
 *.so
@@ -137,3 +139,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 Pyano/__pycache__/midiHandler.cpython-37.pyc
+
+# vscode
+/.vscode
+*.env
