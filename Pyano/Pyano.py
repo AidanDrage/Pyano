@@ -1,20 +1,32 @@
-from tkinter import *
+import tkinter as tk
 
-import midiHandler as mh
+import HomePage as hp
+import SetingsPage as sp
+        
+class PyanoApp(tk.Tk):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-window = Tk()
+        #self.geometry("500x200")
 
-inputsList = ["Select an option"] + mh.listMidiInputs()
+        menubar = tk.Menu(self)
+        menubar.add_command(label="Home", 
+            command = lambda: change_page(hp.HomePage(self)))
+        menubar.add_command(label="Settings", 
+            command = lambda: change_page(sp.SettingsPage(self)))
+        self.config(menu=menubar)
+        
+        global currentpage 
+        currentpage = hp.HomePage(self)
+        currentpage.pack()
 
-inputVal = StringVar(window)
-inputVal.set(inputsList[0])
+        def change_page(newpage):
+            global currentpage
+            currentpage.pack_forget()
+            
+            currentpage = newpage
+            newpage.pack()
 
-inputSelection = OptionMenu(
-    window, 
-    inputVal, 
-    *inputsList, 
-    command = mh.selectInput)
-inputSelection.pack()
-
-window.mainloop()
+app = PyanoApp()
+app.mainloop()
