@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from MIDIHandler import *
+from MidiHandler import *
 
 class SettingsPage(tk.Frame):
     

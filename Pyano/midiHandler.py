@@ -4,7 +4,7 @@ import mido
 from playsound import playsound
 
 
-class midiHandler:
+class MidiHandler:
 
     def listMidiInputs(self):
         return mido.get_input_names()
