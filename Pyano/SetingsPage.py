@@ -10,7 +10,7 @@ class SettingsPage(tk.Frame):
         splash = tk.Label(self, text = "Settings!")
         splash.pack()
 
-        mh = midiHandler()
+        mh = MidiHandler()
 
         inputsList = ["Select an option"] + mh.listMidiInputs()
         inputVal = tk.StringVar(self)
